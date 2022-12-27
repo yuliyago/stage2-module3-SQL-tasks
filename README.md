@@ -114,7 +114,7 @@ Write your script to a file with the path src/main/resources/SOLUTION.sql.
 1. Select all students with all the available fields
 2. Select 50 students
 3. Select only students’ name
-4. Select unique values of Amount from Orders table
+4. Select unique values of Amount from Payment table
 
 Write your script to a file with the path src/main/resources/SOLUTION.sql.
 
@@ -186,7 +186,7 @@ Write your script to a file with the path src/main/resources/SOLUTION.sql.
 
 ## Lesson 12 task:
 
-1) Delete all students with grade more than 4 and all relationships with this student;
+1) Delete all students with grade more or equals than 4 and all relationships with this student;
 2) Delete students who have at least one mark less than 4;
 3) Delete “Daily” payment type and all relationships with this type.
 4) Delete All marks less than 7

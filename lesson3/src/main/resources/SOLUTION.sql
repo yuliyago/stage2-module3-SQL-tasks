@@ -1,17 +1,17 @@
-ALTER TABLE student MODIFY birthday DATE NOT NULL;
+ALTER TABLE Student ALTER COLUMN birthday SET NOT NULL;
 
-ALTER TABLE mark MODIFY mark INT CHECK (mark >= 1 AND mark <= 10);
-ALTER TABLE mark MODIFY student_id BIGINT NOT NULL;
-ALTER TABLE mark MODIFY subject_id BIGINT NOT NULL;
+ALTER TABLE Mark ADD CONSTRAINT CheckMark CHECK (mark >= 1 AND mark <=10);
 
-ALTER TABLE subject MODIFY grade INT CHECK (grade >= 1 AND grade <= 5);
+ALTER TABLE Mark ALTER COLUMN student_id SET NOT NULL;
 
-ALTER TABLE paymenttype ADD UNIQUE (name);
+ALTER TABLE Mark ALTER COLUMN subject_id SET NOT NULL;
 
-ALTER TABLE payment MODIFY type_id BIGINT NOT NULL;
-ALTER TABLE payment MODIFY amount decimal NOT NULL;
-ALTER TABLE payment MODIFY payment_date DateTime NOT NULL;
+ALTER TABLE Subject ADD CONSTRAINT CheckGrade CHECK (grade >= 1 AND grade <=5);
 
-ALTER TABLE payment ADD CONSTRAINT fk_payment_type FOREIGN KEY (type_id) REFERENCES paymenttype(id);
+ALTER TABLE PaymentType ADD CONSTRAINT NameUnique UNIQUE(name);
 
-ALTER TABLE payment ADD CONSTRAINT fk_payment_student FOREIGN KEY (student_id) REFERENCES student(id);
+ALTER TABLE Payment ALTER COLUMN type_id SET NOT NULL;
+
+ALTER TABLE Payment ALTER COLUMN amount SET NOT NULL;
+
+ALTER TABLE Payment ALTER COLUMN payment_date SET NOT NULL;

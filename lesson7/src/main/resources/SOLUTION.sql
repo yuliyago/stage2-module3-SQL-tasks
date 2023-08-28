@@ -1,5 +1,9 @@
-SELECT mark.* FROM mark WHERE mark.mark > 6 ORDER BY mark.mark DESC;
-SELECT payment.* FROM payment WHERE payment.amount < 300 ORDER BY payment.amount ASC;
-SELECT paymenttype.* FROM paymenttype ORDER BY paymenttype.name ASC;
-SELECT student.* FROM student ORDER BY student.name DESC;
-SELECT student.* FROM student JOIN payment ON payment.student_id = student.id WHERE payment.amount > 1000 ORDER BY student.birthday ASC;
+SELECT * FROM Mark WHERE mark > 6 ORDER BY mark DESC;
+
+SELECT * FROM Payment WHERE amount < 300 ORDER BY amount ASC;
+
+SELECT * FROM PaymentType ORDER BY name ASC;
+
+SELECT * FROM Student ORDER BY name DESC;
+
+SELECT * FROM Student s JOIN (SELECT COUNT(id) payment_count, student_id FROM Payment WHERE amount > 1000 GROUP BY(student_id) ) p ON p.student_id = s.id WHERE p.payment_count >= 1 ORDER BY(s.birthday) ASC;

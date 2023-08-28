@@ -1,4 +1,7 @@
-SELECT * FROM student;
-SELECT * FROM student LIMIT 50;
-SELECT name FROM student;
-SELECT DISTINCT Amount FROM Payment;
+SELECT * FROM Student;
+
+SELECT * FROM Student LIMIT 0,50;
+
+SELECT s.name FROM Student s;
+
+SELECT DISTINCT Amount FROM Orders;
